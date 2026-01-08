@@ -10,6 +10,14 @@
     
     <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" >
 
+    {% if user.is_authenticated %}
+        <p>Status: <strong>Logged in</strong> ({{ user.username }})</p>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <p>Status: <strong>Not logged in</strong></p>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+
     <h1>Christmas meal voting</h1>
     <p>Here you can vote for your favorite Christmas meal.</p>
     <strong>You need to be logged in to be able to vote.</strong>

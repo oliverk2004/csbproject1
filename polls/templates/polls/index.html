@@ -10,6 +10,10 @@
     
     <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" >
 
+    <h1>Christmas meal voting</h1>
+    <p>Here you can vote for your favorite Christmas meal.</p>
+    <strong>You need to be logged in to be able to vote.</strong>
+
     {% if latest_question_list %}
         <ul>
         {% for question in latest_question_list %}

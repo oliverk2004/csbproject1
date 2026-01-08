@@ -15,3 +15,13 @@ The three-step guide to making model changes:
 
 ### A shortcut: render()
 The render() function takes the request object as its first argument, a template as its second argument and a dictionary as its optional third argument. It returns an HTTPResponse object of the given template rendered with the given context.
+
+### Adding stylesheet and styles overall
+Make sure that in settings.py file you have 
+```bash
+STATIC_URL = '/static/'
+```
+not
+```bash
+STATIC_URL = 'static/'
+```

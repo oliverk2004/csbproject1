@@ -20,10 +20,11 @@
     {% else %}
         <p>Status: <strong>Not logged in</strong></p>
         <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'polls:signup' %}">Sign up</a>
     {% endif %}
 
 
-    <h1>Christmas meal voting</h1>
+    <h1>Christmas meal voting 2026</h1>
     <p>Here you can vote for your favorite Christmas meal.</p>
     <strong>You need to be logged in to be able to vote.</strong>
 

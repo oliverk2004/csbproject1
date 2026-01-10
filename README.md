@@ -11,3 +11,8 @@ This web app is made using Python and Django so therefore you should first read 
 
 ## Flaw 1: Broken Access Control
 Access control enforces policy such that users cannot act outside of their intended permissions ([source](https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/)). For example, user has access on viewing sensitive data or performing adminstrative actions, which easily causes security concerns. 
+
+This Christmas Meal Voting -app has one serious flaw on access control. User must be logged in before voting so the user won't manipulate the results because every user has only one vote to give on each question. This problem can be fixed by adding @login_required in views.py in **ADD METHDOS HERE!**. 
+
+## Flaw 2: Security Misconfiguration
+Security misconfiguration includes a wide range of issues. Issues may have been explictly misdefined by the programmers or could have been left unchanged. 

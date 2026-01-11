@@ -25,12 +25,22 @@ python manage.py runserver
 The website is running on your localhost server: http://localhost:8000/
 
 ## Flaw 1: Broken Access Control
-Access control enforces policy such that users cannot act outside of their intended permissions ([1](https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/)). For example, user has access on viewing sensitive data or performing adminstrative actions, which easily causes security concerns. 
+Access control enforces policy such that users cannot act outside of their intended permissions [[1](https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/)]. For example, user has access on viewing sensitive data or performing adminstrative actions, which easily causes security concerns. 
 
 This Christmas Meal Voting -app has one serious flaw on access control. User must be logged in before voting so the user won't manipulate the results because every user has only one vote to give on each question. This problem can be fixed by adding @login_required in views.py in **ADD METHDOS HERE!**. 
 
 ## Flaw 2: Security Misconfiguration
 Security misconfiguration includes a wide range of issues. Issues may have been explictly misdefined by the programmers or could have been left unchanged. 
+
+
+## Flaw 3: Identification and Authentication Failures
+Identification and authentication failures are security vulnerabilities that can occur when a system or application fails to identify or authenticate a user correctly [2]. A hacker can easily obtain and use anyone's credentials through brute force, if the authentication methods are weak enough. 
+
+
+**Links to the flaw in this project:**
+- Password validators: **ADD LINK HERE**
+- Secure session cookies: **ADD LINK HERE**
+
 
 
 ### Sources:

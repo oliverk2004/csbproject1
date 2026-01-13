@@ -36,18 +36,29 @@ Security misconfiguration includes a wide range of issues. Issues may have been 
 ## Identification and Authentication Failures (FLAW 3)
 Identification and authentication failures are security vulnerabilities that can occur when a system or application fails to identify or authenticate a user correctly [2]. A hacker can easily obtain and use anyone's credentials through brute force, if the authentication methods are weak enough. **Add more texts still...**
 
-**Links to the flaw in this project:**
+### Links to the flaw in this project:
 - Password validators: https://github.com/oliverk2004/csbproject1/blob/main/config/settings.py#L87-L102
 - Secure session cookies: https://github.com/oliverk2004/csbproject1/blob/main/config/settings.py#L104-L105
 
-**FIX**
+### FIX:
 To fix this flaw is very simple. Uncomment the lines in *settings.py* file to use Django's strict password control and secure session cookies. After that, all session cookies will be encrypted. Now the app is requiring new user to set password within the limits of:
 - Your password can’t be too similar to your other personal information.
 - Your password must contain at least 8 characters.
 - Your password can’t be a commonly used password.
 - Your password can’t be entirely numeric.
 
-There is no ability (yet) to change your password (except admin) which you would increase the security further...
+*There is no ability (yet) to change your password (except admin) which you would increase the security further...*
+
+## CSRF (FLAW 4)
+Cross-Site Request Forgery (CSRF) is a flaw that, is not so common nowadays because there is more secure web frameworks. In CSRF, user can send unauthorized web requests to a website through other website where the user is authenticated. 
+
+### Links to the flaw in this project:
+- Add CSRF token: **ADD LINK HERE**
+- SameSite Cookies: **ADD LINK HERE**
+- Exempt decorator: **ADD LINK HERE**
+
+### FIX:
+Luckily this flaw is easy to fix. In *index.html* file, remove the comment around {% csrf_token %} to enable the protection. 
 
 
 ### Sources:

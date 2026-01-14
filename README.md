@@ -49,6 +49,7 @@ Django-based web applications includes a *settings.py* file. It can be configure
 To fix this flaw, we have to make a couple corrections in *settings.py* file. 
 1. Set DEBUG to False (its default value is True) to not allow attackers to see useful information about the website. For example trying to view a nonexistent page like http://127.0.0.1:8000/hacking_the_page. 
 2. Variable ALLOWED_HOSTS is undefined which means that anyone is allowed to run the server. 
+
 **Note!** that application is not working is DEBUG = False and ALLOWED_HOSTS is still = []. You must define ALLOWED_HOSTS as your localhost.
 
 ## Identification and Authentication Failures (FLAW 3)
@@ -57,8 +58,6 @@ Identification and authentication failures are security vulnerabilities that can
 ### Links to the flaw in this project:
 1. Password validators: https://github.com/oliverk2004/csbproject1/blob/main/config/settings.py#L90-L105
 
-**Note!** that *Log in* and *Sign up* are not working if the flaw 4 it not fixed. More information in *CSRF (FLAW 4)* down below. 
-
 ### FIX:
 To fix this flaw is very simple. Uncomment the lines in *settings.py* file to use Django's strict password control. Now the app is requiring new user to set password within the limits of:
 - Your password can’t be too similar to your other personal information.
@@ -66,20 +65,23 @@ To fix this flaw is very simple. Uncomment the lines in *settings.py* file to us
 - Your password can’t be a commonly used password.
 - Your password can’t be entirely numeric.
 
+**Note!** that *Log in* and *Sign up* are not working if the flaw 4 it not fixed. More information in *CSRF (FLAW 4)* down below. 
+
 *There is no ability (yet) to change your password (except admin) which you would increase the security further...*
 
 ## CSRF (FLAW 4)
 Cross-Site Request Forgery (CSRF) is a flaw that, is not so common nowadays because there is more secure web frameworks. In CSRF, user can send unauthorized web requests to a website through other website where the user is authenticated. This lets the attackers access the data as they were you as a user. CSRF attacks target functionality that causes a state change on the server, such as changing the victim's email address or password, or purchasing something [3]. CSRF attacks are possible in this project because built-in CSRF protection is disabled. 
 
 ### Links to the flaw in this project:
-- Add CSRF tokens:
-  1. https://github.com/oliverk2004/csbproject1/blob/main/polls/templates/polls/index.html#L17
-  2. https://github.com/oliverk2004/csbproject1/blob/main/templates/registration/login.html#L14
-  3. https://github.com/oliverk2004/csbproject1/blob/main/templates/registration/signup.html#L10
+- Add CSRF tokens:  
+  1. https://github.com/oliverk2004/csbproject1/blob/main/templates/registration/signup.html#L10
+  2. https://github.com/oliverk2004/csbproject1/blob/main/polls/templates/polls/index.html#L17
+  3. https://github.com/oliverk2004/csbproject1/blob/main/templates/registration/login.html#L14
+
 - SameSite Cookies: https://github.com/oliverk2004/csbproject1/blob/main/config/settings.py#L132
 
 ### FIX:
-Luckily this flaw is easy to fix. In *index.html* file, remove the comment around {% csrf_token %} to enable the protection. Also, delete the final row in *settings.py* file "SESSION_COOKIE_SAMESITE = None". Now it is set back to default, enabling additional CSRF protection. 
+Luckily this flaw is easy to fix. In *index.html*, *login.html* and *signup.html* files, remove the comments around {% csrf_token %} to enable the protection. Also, delete the final row in *settings.py* file "SESSION_COOKIE_SAMESITE = None". Now it is set back to default, enabling additional CSRF protection. 
 
 
 ## References:

@@ -104,8 +104,6 @@ DATABASES = {
 ]
 '''
 
-# Flaw 3: Identification and Authentication Failures: Uncomment this row underneath
-#SESSION_COOKIE_SECURE = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/

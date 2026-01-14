@@ -49,17 +49,18 @@ Django-based web applications includes a *settings.py* file. It can be configure
 To fix this flaw, we have to make a couple corrections in *settings.py* file. 
 1. Set DEBUG to False (its default value is True) to not allow attackers to see useful information about the website. For example trying to view a nonexistent page like http://127.0.0.1:8000/hacking_the_page. 
 2. Variable ALLOWED_HOSTS is undefined which means that anyone is allowed to run the server. 
-
+**Note!** that application is not working is DEBUG = False and ALLOWED_HOSTS is still = []. You must define ALLOWED_HOSTS as your localhost.
 
 ## Identification and Authentication Failures (FLAW 3)
 Identification and authentication failures are security vulnerabilities that can occur when a system or application fails to identify or authenticate a user correctly. A hacker can easily obtain and use anyone's credentials through brute force, if the authentication methods are weak enough. OWASP says that where possible, implement multi-factor authentication to prevent automated credential stuffing, brute force, and stolen credential reuse attacks [4]. For me, it would take too much time to implement for example two-factor authentication system into this web application. Therefore we must create strong passwords.
 
 ### Links to the flaw in this project:
-- Password validators: https://github.com/oliverk2004/csbproject1/blob/main/config/settings.py#L87-L102
-- Secure session cookies: https://github.com/oliverk2004/csbproject1/blob/main/config/settings.py#L104-L105
+1. Password validators: https://github.com/oliverk2004/csbproject1/blob/main/config/settings.py#L90-L105
+
+**Note!** that *Log in* and *Sign up* are not working if the flaw 4 it not fixed. More information in *CSRF (FLAW 4)* down below. 
 
 ### FIX:
-To fix this flaw is very simple. Uncomment the lines in *settings.py* file to use Django's strict password control and secure session cookies. After that, all session cookies will be encrypted. Now the app is requiring new user to set password within the limits of:
+To fix this flaw is very simple. Uncomment the lines in *settings.py* file to use Django's strict password control. Now the app is requiring new user to set password within the limits of:
 - Your password can’t be too similar to your other personal information.
 - Your password must contain at least 8 characters.
 - Your password can’t be a commonly used password.

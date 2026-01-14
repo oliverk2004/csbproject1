@@ -30,8 +30,8 @@ Access control enforces policy such that users cannot act outside of their inten
 This Christmas Meal Voting -app has one serious flaw on access control. User must be logged in before voting so the user won't manipulate the results because every user has only one vote to give on each question. This problem can be fixed by adding @login_required in views.py to method *vote*.
 
 ### Links to the flaw in this project:
-Login decorator in vote method: https://github.com/oliverk2004/csbproject1/blob/main/polls/views.py#L61-L62
-Login requirement to see the question: https://github.com/oliverk2004/csbproject1/blob/main/polls/views.py#L31-L44
+- Login decorator in vote method: https://github.com/oliverk2004/csbproject1/blob/main/polls/views.py#L61-L62
+- Login requirement to see the question: https://github.com/oliverk2004/csbproject1/blob/main/polls/views.py#L31-L44
 
 ### FIX: 
 Uncommenting these two sections changes the application so that a user has to log in to be able see the question and after that to vote. 
@@ -52,7 +52,7 @@ To fix this flaw, we have to make a couple corrections in *settings.py* file.
 
 
 ## Identification and Authentication Failures (FLAW 3)
-Identification and authentication failures are security vulnerabilities that can occur when a system or application fails to identify or authenticate a user correctly. A hacker can easily obtain and use anyone's credentials through brute force, if the authentication methods are weak enough. **Add more texts still...**
+Identification and authentication failures are security vulnerabilities that can occur when a system or application fails to identify or authenticate a user correctly. A hacker can easily obtain and use anyone's credentials through brute force, if the authentication methods are weak enough. OWASP says that where possible, implement multi-factor authentication to prevent automated credential stuffing, brute force, and stolen credential reuse attacks [4]. For me, it would take too much time to implement for example two-factor authentication system into this web application. Therefore we must create strong passwords.
 
 ### Links to the flaw in this project:
 - Password validators: https://github.com/oliverk2004/csbproject1/blob/main/config/settings.py#L87-L102
@@ -85,3 +85,4 @@ Luckily this flaw is easy to fix. In *index.html* file, remove the comment aroun
 1. https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/
 2. https://cybersecuritybase.mooc.fi/module-2.3/1-security
 3. https://owasp.org/www-community/attacks/csrf
+4. https://owasp.org/Top10/2021/A07_2021-Identification_and_Authentication_Failures/#example-attack-scenarios

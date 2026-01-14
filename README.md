@@ -30,8 +30,8 @@ Access control enforces policy such that users cannot act outside of their inten
 This Christmas Meal Voting -app has one serious flaw on access control. User must be logged in before voting so the user won't manipulate the results because every user has only one vote to give on each question. This problem can be fixed by adding @login_required in views.py to method *vote*.
 
 ### Links to the flaw in this project:
-- Login decorator in vote method: https://github.com/oliverk2004/csbproject1/blob/main/polls/views.py#L61-L62
-- Login requirement to see the question: https://github.com/oliverk2004/csbproject1/blob/main/polls/views.py#L31-L44
+1. Login requirement to see the question: https://github.com/oliverk2004/csbproject1/blob/main/polls/views.py#L31-L44
+2. Login decorator in vote method: https://github.com/oliverk2004/csbproject1/blob/main/polls/views.py#L61-L62
 
 ### FIX: 
 Uncommenting these two sections changes the application so that a user has to log in to be able see the question and after that to vote. 

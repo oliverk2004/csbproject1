@@ -42,7 +42,7 @@ model = Question
         """
         return Question.objects.filter(pub_date__lte=timezone.now())
 '''
-class DetailView(generic.DetailView): 
+class DetailView( generic.DetailView): 
     model = Question
     template_name = 'polls/detail.html'
     login_url = '/accounts/login/'

@@ -30,11 +30,22 @@ Access control enforces policy such that users cannot act outside of their inten
 This Christmas Meal Voting -app has one serious flaw on access control. User must be logged in before voting so the user won't manipulate the results because every user has only one vote to give on each question. This problem can be fixed by adding @login_required in views.py in **ADD METHDOS HERE!**. 
 
 ## Security Misconfiguration (FLAW 2)
-Security misconfiguration includes a wide range of issues. Issues may have been explictly misdefined by the programmers or could have been left unchanged. 
+Security misconfiguration includes a wide range of issues. Issues may have been explictly misdefined by the programmers or could have been left unchanged. It includes questions such as 'who has access to the server where the web application is running?', 'who has access to the server where the database or other components are running?', 'are the software components and libraries as well as the operating systems up to date?', 'are the used passwords high quality?' [2]. 
+
+Django-based web applications includes a *settings.py* file. It can be configured according to the needed user and administrator use cases. Nevertheless, *settings.py* file with the default settings, is not so safe. 
+
+### Links to the flaw in this project:
+- Debug enabled: https://github.com/oliverk2004/csbproject1/blob/main/config/settings.py#L26-L27
+- Undefined hosts: https://github.com/oliverk2004/csbproject1/blob/main/config/settings.py#L29-L30
+
+### FIX:
+To fix this flaw, we have to make a couple corrections in *settings.py* file. 
+1. Set DEBUG to False (its default value is True) to not allow attackers to see useful information about the website. For example trying to view a nonexistent page like http://127.0.0.1:8000/hacking_the_page. 
+2. Variable ALLOWWED_HOSTS is undefined which means that anyone is allowed to run the server. 
 
 
 ## Identification and Authentication Failures (FLAW 3)
-Identification and authentication failures are security vulnerabilities that can occur when a system or application fails to identify or authenticate a user correctly [2]. A hacker can easily obtain and use anyone's credentials through brute force, if the authentication methods are weak enough. **Add more texts still...**
+Identification and authentication failures are security vulnerabilities that can occur when a system or application fails to identify or authenticate a user correctly. A hacker can easily obtain and use anyone's credentials through brute force, if the authentication methods are weak enough. **Add more texts still...**
 
 ### Links to the flaw in this project:
 - Password validators: https://github.com/oliverk2004/csbproject1/blob/main/config/settings.py#L87-L102
@@ -65,5 +76,5 @@ Luckily this flaw is easy to fix. In *index.html* file, remove the comment aroun
 
 ## References:
 1. https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/
-2. ?
+2. https://cybersecuritybase.mooc.fi/module-2.3/1-security
 3. https://owasp.org/www-community/attacks/csrf

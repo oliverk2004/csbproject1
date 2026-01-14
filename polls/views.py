@@ -7,6 +7,8 @@ from django.utils import timezone
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+
 
 
 from .models import Choice, Question
@@ -26,8 +28,21 @@ class IndexView(generic.ListView):
             pub_date__lte=timezone.now()
         ).order_by('-pub_date')[:5]
     
+# FLAW 1: Add parameter LoginRequiredMixin before generic.DetailView
+# Like this
+'''
+class DetailView(LoginRequiredMixin, generic.DetailView): 
+model = Question
+    template_name = 'polls/detail.html'
+    login_url = '/accounts/login/'
 
-class DetailView(LoginRequiredMixin, generic.DetailView):
+    def get_queryset(self):
+        """
+        Excludes any questions that aren't published yet.
+        """
+        return Question.objects.filter(pub_date__lte=timezone.now())
+'''
+class DetailView(generic.DetailView): 
     model = Question
     template_name = 'polls/detail.html'
     login_url = '/accounts/login/'
@@ -43,7 +58,8 @@ class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
 
-
+# FLAW 1: Uncomment the line under to enable login required
+# @login_required(login_url='/accounts/login/')
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:

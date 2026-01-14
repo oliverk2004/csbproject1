@@ -25,9 +25,16 @@ python manage.py runserver
 The website is running on your localhost server: http://localhost:8000/
 
 ## Broken Access Control (FLAW 1)
-Access control enforces policy such that users cannot act outside of their intended permissions [[1](https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/)]. For example, user has access on viewing sensitive data or performing adminstrative actions, which easily causes security concerns. 
+Access control enforces policy such that users cannot act outside of their intended permissions [[1](https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/)]. For example, user has access on viewing sensitive data or performing adminstrative actions, which easily causes security concerns. Furthermore, weak passwords and authentication policy are included under Broken Access Control. Sometimes data is stored in path variables which can be modified to give several users access to that data. 
 
-This Christmas Meal Voting -app has one serious flaw on access control. User must be logged in before voting so the user won't manipulate the results because every user has only one vote to give on each question. This problem can be fixed by adding @login_required in views.py in **ADD METHDOS HERE!**. 
+This Christmas Meal Voting -app has one serious flaw on access control. User must be logged in before voting so the user won't manipulate the results because every user has only one vote to give on each question. This problem can be fixed by adding @login_required in views.py to method *vote*.
+
+### Links to the flaw in this project:
+Login decorator in vote method: https://github.com/oliverk2004/csbproject1/blob/main/polls/views.py#L61-L62
+Login requirement to see the question: https://github.com/oliverk2004/csbproject1/blob/main/polls/views.py#L31-L44
+
+### FIX: 
+Uncommenting these two sections changes the application so that a user has to log in to be able see the question and after that to vote. 
 
 ## Security Misconfiguration (FLAW 2)
 Security misconfiguration includes a wide range of issues. Issues may have been explictly misdefined by the programmers or could have been left unchanged. It includes questions such as 'who has access to the server where the web application is running?', 'who has access to the server where the database or other components are running?', 'are the software components and libraries as well as the operating systems up to date?', 'are the used passwords high quality?' [2]. 
@@ -41,7 +48,7 @@ Django-based web applications includes a *settings.py* file. It can be configure
 ### FIX:
 To fix this flaw, we have to make a couple corrections in *settings.py* file. 
 1. Set DEBUG to False (its default value is True) to not allow attackers to see useful information about the website. For example trying to view a nonexistent page like http://127.0.0.1:8000/hacking_the_page. 
-2. Variable ALLOWWED_HOSTS is undefined which means that anyone is allowed to run the server. 
+2. Variable ALLOWED_HOSTS is undefined which means that anyone is allowed to run the server. 
 
 
 ## Identification and Authentication Failures (FLAW 3)

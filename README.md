@@ -50,16 +50,17 @@ To fix this flaw is very simple. Uncomment the lines in *settings.py* file to us
 *There is no ability (yet) to change your password (except admin) which you would increase the security further...*
 
 ## CSRF (FLAW 4)
-Cross-Site Request Forgery (CSRF) is a flaw that, is not so common nowadays because there is more secure web frameworks. In CSRF, user can send unauthorized web requests to a website through other website where the user is authenticated. 
+Cross-Site Request Forgery (CSRF) is a flaw that, is not so common nowadays because there is more secure web frameworks. In CSRF, user can send unauthorized web requests to a website through other website where the user is authenticated. This lets the attackers access the data as they were you as a user. CSRF attacks target functionality that causes a state change on the server, such as changing the victim's email address or password, or purchasing something [3]. CSRF attacks are possible in this project because built-in CSRF protection is disabled. 
 
 ### Links to the flaw in this project:
 - Add CSRF token: **ADD LINK HERE**
 - SameSite Cookies: **ADD LINK HERE**
-- Exempt decorator: **ADD LINK HERE**
 
 ### FIX:
-Luckily this flaw is easy to fix. In *index.html* file, remove the comment around {% csrf_token %} to enable the protection. 
+Luckily this flaw is easy to fix. In *index.html* file, remove the comment around {% csrf_token %} to enable the protection. Also, delete the final row in *settings.py* file "SESSION_COOKIE_SAMESITE = None". Now it is set back to default, enabling additional CSRF protection. 
 
 
-### Sources:
-1. (https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/)
+## References:
+1. https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/
+2. ?
+3. https://owasp.org/www-community/attacks/csrf

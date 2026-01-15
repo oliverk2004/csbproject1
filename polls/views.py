@@ -64,11 +64,12 @@ def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
-    except (KeyError, Choice.DoesNotExist):
+    except (KeyError, Choice.DoesNotExist, ValueError):
         # Redisplay the question voting form.
+        user_input = request.POST.get('choice', '')
         return render(request, 'polls/detail.html', {
             'question': question,
-            'error_message': "You didn't select a choice."
+            'error_message': f"Invalid choice: {user_input}"
         })
     else:
         selected_choice.votes += 1

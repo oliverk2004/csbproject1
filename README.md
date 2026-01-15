@@ -84,10 +84,14 @@ Cross-Site Request Forgery (CSRF) is a flaw that, is not so common nowadays beca
 Luckily this flaw is easy to fix. In *index.html*, *login.html* and *signup.html* files, remove the comments around {% csrf_token %} to enable the protection. Also, delete the final row in *settings.py* file "SESSION_COOKIE_SAMESITE = None". Now it is set back to default, enabling additional CSRF protection. 
 
 ## Cross-Site Scripting (FLAW 5)
-Cross-Site Scripting attacks (XSS) are a type of injection, in which malicious scripts are injected into otherwise bening and trusted websites [5]. These attacks can enable session hijacking, allowing th attackers to impersonate users. This application contains a potential XSS vulnerability where user-supplied input is rendered in a template using the *safe* filter. This disables Django's automatic HTML escaping. 
+Cross-Site Scripting attacks (XSS) are a type of injection, in which malicious scripts are injected into otherwise bening and trusted websites [5]. These attacks can enable session hijacking, allowing th attackers to impersonate users. This application contains a potential XSS vulnerability where user-supplied input is rendered in a template using the *safe* filter. This disables Django's automatic HTML escaping. As a result, an attacker can submit malicious code which is reflected back to the user's browser and executed when the page is rendered. 
 
 ### Links to the flaw in this project:
+  1. https://github.com/oliverk2004/csbproject1/blob/main/polls/templates/polls/detail.html#L14-L15
 
+
+### FIX:
+To fix this, you have to delete 'safe' filter and either add Django's templates filter 'escape' or just delete 'safe' instead. This change ensures that user-supplied input is rendered as plain text rather than executable code. Therefore, Cross-Site Scripting attacks can be prevented. 
 
 ## References:
 1. https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/

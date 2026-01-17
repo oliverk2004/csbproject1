@@ -5,6 +5,8 @@ Cyber Security Base Project 1 -course repo.
 I use in this project OWASP list from the year 2021: https://owasp.org/Top10/2021/
 The project is based on backend. 
 
+In this web application, you can vote your favorite Christmas meal in different categories. The application has a lot improvments and functions to be done still but still with this applications, five commmon cyber security flaws can be demonstrated. Flaws occur in backend and frontend has a lot of todos but in this project those are not necessary. 
+
 ### How to run the project (on Windows)
 This web app is made using Python and Django so therefore you should first read the [installation guide](https://cybersecuritybase.mooc.fi/installation-guide) so you have installed the required libraries and dependencies. It is used in this course (MOOC Cyber Security Base 2025). 
 

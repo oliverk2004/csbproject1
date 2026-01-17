@@ -1,11 +1,11 @@
 # CSB Project1
-
+LINK TO THIS REPOSITORY: https://github.com/oliverk2004/csbproject1
 ## Introduction
 Cyber Security Base Project 1 -course repo.
 I use in this project OWASP list from the year 2021: https://owasp.org/Top10/2021/
 The project is based on backend. 
 
-In this web application, you can vote your favorite Christmas meal in different categories. The application has a lot improvments and functions to be done still but still with this applications, five commmon cyber security flaws can be demonstrated. Flaws occur in backend and frontend has a lot of todos but in this project those are not necessary. 
+In this web application, you can vote your favorite Christmas meal in different categories. The application has a lot improvments and functions to be done still but with this applications, five commmon cyber security flaws can be demonstrated. Flaws occur in backend and frontend has a lot of todos but in this project those are not necessary. 
 
 ### How to run the project (on Windows)
 This web app is made using Python and Django so therefore you should first read the [installation guide](https://cybersecuritybase.mooc.fi/installation-guide) so you have installed the required libraries and dependencies. It is used in this course (MOOC Cyber Security Base 2025). 
@@ -25,6 +25,15 @@ Last but not least, start the server:
 python manage.py runserver
 ```
 The website is running on your localhost server: http://localhost:8000/
+
+**Users in this website:**
+username: admin,
+password: password
+
+username: testUser
+password: tester012
+
+**NOTE!:** You have to first fix the **Flaw 4 (CSRF)** to use users in this web application.
 
 ## Broken Access Control (FLAW 1)
 Access control enforces policy such that users cannot act outside of their intended permissions [[1](https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/)]. For example, user has access on viewing sensitive data or performing adminstrative actions, which easily causes security concerns. Furthermore, weak passwords and authentication policy are included under Broken Access Control. Sometimes data is stored in path variables which can be modified to give several users access to that data. 

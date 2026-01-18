@@ -26,14 +26,6 @@ python manage.py runserver
 ```
 The website is running on your localhost server: http://localhost:8000/
 
-**Users in this website:**
-
-username: admin,
-password: password
-
-username: testUser
-password: tester012
-
 **NOTE!:** You have to first fix the **Flaw 4 (CSRF)** to use users in this web application.
 
 ## Broken Access Control (FLAW 1)

@@ -5,7 +5,7 @@ Cyber Security Base Project 1 -course repo.
 I use in this project OWASP list from the year 2021: https://owasp.org/Top10/2021/
 The project is based on backend. 
 
-In this web application, you can vote your favorite Christmas meal in different categories. The application has a lot improvments and functions to be done still but with this applications, five commmon cyber security flaws can be demonstrated. Flaws occur in backend and frontend has a lot of todos but in this project those are not necessary. 
+In this web application, you can vote your favorite Christmas meal in different categories. The application has a lot improvments and functions to be done still but with this applications, five quite common cyber security flaws can be demonstrated. Flaws occur in backend and frontend has a lot of todos but in this project those are not necessary. 
 
 ### How to run the project (on Windows)
 This web app is made using Python and Django so therefore you should first read the [installation guide](https://cybersecuritybase.mooc.fi/installation-guide) so you have installed the required libraries and dependencies. It is used in this course (MOOC Cyber Security Base 2025). 
@@ -62,7 +62,7 @@ To fix this flaw, we have to make a couple corrections in *settings.py* file.
 1. Set DEBUG to False (its default value is True) to not allow attackers to see useful information about the website. For example trying to view a nonexistent page like http://127.0.0.1:8000/hacking_the_page. 
 2. Variable ALLOWED_HOSTS is undefined which means that anyone is allowed to run the server. 
 
-**Note!** that application is not working is DEBUG = False and ALLOWED_HOSTS is still = []. You must define ALLOWED_HOSTS as your localhost.
+**Note!** that application is not working if DEBUG = False and ALLOWED_HOSTS is still = []. You must define ALLOWED_HOSTS as your localhost.
 
 ## Identification and Authentication Failures (FLAW 3)
 Identification and authentication failures are security vulnerabilities that can occur when a system or application fails to identify or authenticate a user correctly. A hacker can easily obtain and use anyone's credentials through brute force, if the authentication methods are weak enough. OWASP says that where possible, implement multi-factor authentication to prevent automated credential stuffing, brute force, and stolen credential reuse attacks [4]. For me, it would take too much time to implement for example two-factor authentication system into this web application. Therefore we must create strong passwords.
@@ -107,7 +107,7 @@ To fix this, you have to delete 'safe' filter and either add Django's templates 
 
 
 ## Conclusion
-Overall, this project was interesting to make, and I believe that I learned a lot new about the flaws with this hands-on project. The application could be better and more wider when talking about the functions. 
+Overall, this project was interesting to make, and I believe that I learned a lot new about the flaws with this hands-on project. The application itself, could be better and more wider when talking about the functions. 
 
 ## References:
 1. https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/

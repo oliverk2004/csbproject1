@@ -27,6 +27,7 @@ python manage.py runserver
 The website is running on your localhost server: http://localhost:8000/
 
 **Users in this website:**
+
 username: admin,
 password: password
 
@@ -36,9 +37,9 @@ password: tester012
 **NOTE!:** You have to first fix the **Flaw 4 (CSRF)** to use users in this web application.
 
 ## Broken Access Control (FLAW 1)
-Access control enforces policy such that users cannot act outside of their intended permissions [[1](https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/)]. For example, user has access on viewing sensitive data or performing adminstrative actions, which easily causes security concerns. Furthermore, weak passwords and authentication policy are included under Broken Access Control. Sometimes data is stored in path variables which can be modified to give several users access to that data. 
+Access control enforces policy such that users cannot act outside of their intended permissions [1]. For example, user has access on viewing sensitive data or performing adminstrative actions, which easily causes security concerns. Furthermore, weak passwords and authentication policy are included under Broken Access Control. Sometimes data is stored in path variables which can be modified to give several users access to that data. 
 
-This Christmas Meal Voting -app has one serious flaw on access control. User must be logged in before voting so the user won't manipulate the results because every user has only one vote to give on each question. This problem can be fixed by adding @login_required in views.py to method *vote*.
+This Christmas Meal Voting -app has one serious flaw on access control. User must be logged in before voting so the user won't manipulate the results because every user has only one vote to give on each question. This problem can be fixed by adding *@login_required* in views.py to method *vote*.
 
 ### Links to the flaw in this project:
 1. Login requirement to see the question: https://github.com/oliverk2004/csbproject1/blob/main/polls/views.py#L31-L44
@@ -103,6 +104,10 @@ Cross-Site Scripting attacks (XSS) are a type of injection, in which malicious s
 
 ### FIX:
 To fix this, you have to delete 'safe' filter and either add Django's templates filter 'escape' or just delete 'safe' instead. This change ensures that user-supplied input is rendered as plain text rather than executable code. Therefore, Cross-Site Scripting attacks can be prevented. 
+
+
+## Conclusion
+Overall, this project was interesting to make, and I believe that I learned a lot new about the flaws with this hands-on project. The application could be better and more wider when talking about the functions. 
 
 ## References:
 1. https://owasp.org/Top10/2021/A01_2021-Broken_Access_Control/

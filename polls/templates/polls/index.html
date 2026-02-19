@@ -14,7 +14,7 @@
         <p>Status: <strong>Logged in</strong> ({{ user.username }})</p>
 
         <form method="post" action="{% url 'logout' %}">
-            <!--{% csrf_token %} --> <!--FIX 4: Uncomment this line-->>
+            {% csrf_token %}
             <button type="submit">Logout</button>
         </form>
     {% else %}

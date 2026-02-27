@@ -8,6 +8,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+
 
 
 
@@ -60,6 +62,10 @@ class ResultsView(generic.DetailView):
 
 # FLAW 1: Uncomment the line under to enable login required
 # @login_required(login_url='/accounts/login/')
+# FLAW 4: CSRF
+# This decorator marks a view as being exempt from the protection ensured by the middleware.
+# src: Django's documentation
+@csrf_exempt
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
